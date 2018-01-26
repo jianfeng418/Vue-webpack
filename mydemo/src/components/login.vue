@@ -17,7 +17,7 @@
 
 <script>
 	import loginclounds from './login-clound.vue'
-
+	import $ from 'jquery'
 	export default{
 		name:'login',
 		data() {
@@ -27,13 +27,34 @@
 			userPass:''
 			}
 		},
+		created(){
+		//,{'emulateJSON' : true,'responseType':'json'}
+
+		console.log($)
+
+			$.ajax({
+				url:'/dist/static/data1.php',
+				dataType: "html",
+			})
+
+
+			/*this.$http.get('./static/data1.php',{responseType:'php'}).then(response =>{
+					//console.log(response)
+				},response => {
+
+				});*/
+		},
 		methods:{
 			checkLogin: function(){
 				var that = this;
-				
-				this.$http.get('baidu.com');
+				//发送请求只能获取static下的资源
+				this.$http.get('./static/data1.php',{'emulateJSON' : true,'responseType':'json'}).then(response =>{
+					console.log(response)
+				},response => {
+
+				});
 				if(this.userName === '' || this.userPass === ''){
-					alert('用户名或密码不能为空');
+					
 				}else{
 					this.login();
 				}
@@ -56,7 +77,7 @@
 		margin: 0px auto;
 		width:40%;
 		height:90%;
-		min-height:500px;
+		min-height:300px;
 		border:1px solid #888888;
 		box-shadow:0px 0px 10px 5px  #888888;
 		background: #fff url('../assets/login-bg.jpg') repeat-x ;

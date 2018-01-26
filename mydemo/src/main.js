@@ -6,24 +6,29 @@ import Router from 'vue-router'
 import vueRecource from 'vue-resource'
 Vue.config.productionTip = false
 
+import $ from 'jquery'
+
 import hello from './components/hello'
 import index from './components/index'
 import login from './components/login'
 
 
 const routes=[
-	{path:'/',component:login},
+	//{path:'/',component:login},
 	{path:'/login',component:login},
 	{path:'/hello',component:hello},
 	{path:'/index',component:index}
 ]
 
 const router = new Router({
-	routes
+	routes,
+  mode: 'history',
+  base: '/myVue/', //加上这一行,环境上线时的部署。
 })
 //模块化编程，导入Router
 Vue.use(Router)
 Vue.use(vueRecource)
+Vue.http.options.emulateJSON = true;
 //拓展实例方法
 Vue.prototype.setCookie = (c_name,value,expiredays) => {
 	var exdate = new Date();
@@ -68,6 +73,6 @@ const app = new Vue({
   		}
   	}
   },
-  components: { App },
+  components: { App ,$},
   //template: '<App/>'
 })
