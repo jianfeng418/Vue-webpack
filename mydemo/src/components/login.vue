@@ -33,7 +33,7 @@
 		console.log($)
 
 			$.ajax({
-				url:'/dist/static/data1.php',
+				url:'http://localhost/myVue/php/index.php',
 				dataType: "html",
 			})
 
@@ -106,6 +106,33 @@
 		height:40px;
 		width:100px;
 	}
+	
+
+	.login-body{
+		text-align:center;
+		position:relative;
+		margin-top:80px;
+	}
+	.login-input{
+		width:80%;
+		maring:20px 40px;
+		height:40px;
+		border:1px solid #999;
+		border-radius :5px;
+		margin:12px auto;
+
+	}
+
+	#loginbutton{
+		border:1px solid #999;
+		border-radius :5px;
+		color:#fff;
+		background-color:#50e3ce
+	}
+	#loginbutton:hover{
+		cursor:pointer;
+		opacity:0.8
+	}
 	@keyframes cloundmove{
 		from {left:-200px;	}
 		to {	left:600px;	}
@@ -124,29 +151,16 @@
    		 from {left:-100px;}
    		 to {left:600px;}
 	}
-
-	.login-body{
-		text-align:center;
-		position:relative;
-		margin-top:80px;
-	}
-	.login-input{
-		width:80%;
-		height:40px;
-		border:1px solid #999;
-		border-radius :5px;
-		margin:12px auto;
-
-	}
-
-	#loginbutton{
-		border:1px solid #999;
-		border-radius :5px;
-		color:#fff;
-		background-color:#50e3ce
-	}
-	#loginbutton:hover{
-		cursor:pointer;
-		opacity:0.8
+	@media screen and (max-width: 800px){
+		.login{
+		margin: 0px auto;
+		width:100%;
+		height:100%;
+		
+		}
+		.login-body{
+		
+		margin-top:60px;
+		}
 	}
 </style>
