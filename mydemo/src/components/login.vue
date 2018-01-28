@@ -65,7 +65,7 @@
 				
 				let expireDay = 1000*60*60;
 				this.setCookie('session','blblbl',expireDay);
-				this.$router.push('/hello')
+				this.$router.push('/main')
 			}
 		},
 		components:{loginclounds}
@@ -77,7 +77,7 @@
 		margin: 0px auto;
 		width:40%;
 		height:90%;
-		min-height:300px;
+		min-height:100px;
 		border:1px solid #888888;
 		box-shadow:0px 0px 10px 5px  #888888;
 		background: #fff url('../assets/login-bg.jpg') repeat-x ;
@@ -111,7 +111,7 @@
 	.login-body{
 		text-align:center;
 		position:relative;
-		margin-top:80px;
+		margin-top:5%;
 	}
 	.login-input{
 		width:80%;

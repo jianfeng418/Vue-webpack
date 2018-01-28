@@ -11,13 +11,27 @@ import $ from 'jquery'
 import hello from './components/hello'
 import index from './components/index'
 import login from './components/login'
-
-
+import main from './components/main'
+import home from './components/home'
+import foodinfo from './components/foodInfo'
 const routes=[
 	//{path:'/',component:login},
 	{path:'/login',component:login},
 	{path:'/hello',component:hello},
-	{path:'/index',component:index}
+	{path:'/index',component:index},
+  {
+    path:'/main',
+    component:main,
+    children:[
+      {path:'/home',component:home},
+      {path:'/nearby',component:hello},
+      {path:'/order',component:index},
+      {path:'/info',component:index},
+      {path:'/foodInfo/:id',component:foodinfo},
+      {path:'',component:home}
+    ]
+  }
+
 ]
 
 const router = new Router({
@@ -67,7 +81,7 @@ const app = new Vue({
   	checkLogin(){
   		//检查是否存在session
   		if(this.getCookie('session')){
-  			this.$router.push('/hello');
+  			this.$router.push('/main');
   		}else{
   			this.$router.push('/login');
   		}
